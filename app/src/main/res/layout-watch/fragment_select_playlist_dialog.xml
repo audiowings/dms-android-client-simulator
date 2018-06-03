@@ -1,0 +1,43 @@
+<android.support.wear.widget.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/prompt_parent"
+    android:minHeight="300dp"
+    android:minWidth="300dp"
+    >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:boxedEdges="all"
+        android:paddingTop="8dp"
+        >
+
+        <TextView android:id="@+id/text_playlist_prompt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Select playlist entitled..."
+            android:lines="2"/>
+
+
+        <ImageButton
+            android:id="@+id/button_pl_prompt_yes"
+            style="@style/RoundButton"
+            android:layout_gravity="bottom|start"
+            android:backgroundTint="@color/blue"
+            android:src="@drawable/ic_check"
+
+            />
+
+        <ImageButton
+            android:id="@+id/button_pl_prompt_no"
+            style="@style/RoundButton"
+            android:layout_gravity="bottom|end"
+            android:backgroundTint="@color/light_grey"
+            android:src="@drawable/ic_arrow_forward" />
+
+
+    </FrameLayout>
+</android.support.wear.widget.BoxInsetLayout>
