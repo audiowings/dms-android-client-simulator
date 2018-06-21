@@ -16,6 +16,7 @@
 package com.willpoweru.audiowingsdemo;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.media.MediaBrowserCompat;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements
 
     public static final String TAG_REQUEST_TRACK_URL = "TRACK_URL";
     private static final String LOG_TAG = "<Audiowings>";
+    public String mAwDmsServerAddress;
 
 //    private BrowseAdapter mBrowserAdapter;
 
@@ -150,6 +152,10 @@ public class MainActivity extends AppCompatActivity implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        String mAwDmsServerAddress = sharedPref.getString(getResources()
+                .getString(R.string.pref_key_audiowings_server_address), "");
 
         mIsWatch = getResources().getBoolean(R.bool.watch);
         setContentView(R.layout.activity_main);

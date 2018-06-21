@@ -1,6 +1,8 @@
 package com.willpoweru.audiowingsdemo;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 
@@ -32,12 +34,15 @@ public class DmsClient {
     static final String BASE_URL = "http://" + PROXY_SERVER;
     static final String MAC_ADDRESS = "FF-01-25-79-C7-EC";
 
+
+
     private MySingleton mSingleton;
     OnVolleyResponse mCallback;
 
     public DmsClient(Fragment fragment) {
         this.mCallback = (OnVolleyResponse) fragment;
         mSingleton = MySingleton.getInstance(fragment.getActivity());
+
     }
 
     public interface OnVolleyResponse {

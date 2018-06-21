@@ -1,7 +1,9 @@
 package com.willpoweru.audiowingsdemo;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
@@ -38,8 +40,7 @@ public class SelectPlaylistDialogFragment extends DialogFragment implements DmsC
     private static final HashMap<String, String> HEADER_DEVICE_ID = new HashMap<String, String>(){{
         put("X-Audiowings-DeviceId", DmsClient.MAC_ADDRESS);
     }};
-    private static final String PLAYLISTS_URL = DmsClient.BASE_URL + "/playlists/";
-    private static final String PLAYLIST_URL = DmsClient.BASE_URL + "/playlist/"; // ?playlistId=";
+
 
     public static final String TAG_REQUEST_PLAYLISTS = "PLAYLISTS";
     public static final String TAG_REQUEST_PLAYLIST = "PLAYLIST";
@@ -59,6 +60,10 @@ public class SelectPlaylistDialogFragment extends DialogFragment implements DmsC
 //    private BoxInsetLayout promptParent;
 
 
+
+    private String mBaseUrl;
+    private String mPlaylistsUrl;
+    private String mPlaylistUrl;
 
     OnPlaylistCreatedListener mCallback;
     private DmsClient mDmsClient;
@@ -150,7 +155,7 @@ public class SelectPlaylistDialogFragment extends DialogFragment implements DmsC
             }
         });
 
-        mDmsClient.requestDmsData(TAG_REQUEST_PLAYLISTS, PLAYLISTS_URL, HEADER_DEVICE_ID, null);
+        mDmsClient.requestDmsData(TAG_REQUEST_PLAYLISTS, mPlaylistsUrl, HEADER_DEVICE_ID, null);
     }
 
 
@@ -197,7 +202,7 @@ public class SelectPlaylistDialogFragment extends DialogFragment implements DmsC
             e.printStackTrace();
         }
         String params = "?playlistId=" + playlistId + "&playlistTitle=" + title;
-        mDmsClient.requestDmsData(TAG_REQUEST_PLAYLIST, PLAYLIST_URL + params, HEADER_DEVICE_ID, null);
+        mDmsClient.requestDmsData(TAG_REQUEST_PLAYLIST, mPlaylistUrl + params, HEADER_DEVICE_ID, null);
     }
 
     private void saveFile(String filename, String fileContents) {
@@ -221,6 +226,14 @@ public class SelectPlaylistDialogFragment extends DialogFragment implements DmsC
 
         mDmsClient = new DmsClient(this);
 
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String mProxyAddress = sharedPref.getString(getResources()
+                .getString(R.string.pref_key_audiowings_server_address), "");
+        mBaseUrl = "http://" + mProxyAddress;
+        mPlaylistsUrl = mBaseUrl + "/playlists/";
+        mPlaylistUrl = mBaseUrl + "/playlist/"; // ?playlistId=";
+
+        Log.d("LOG", "PlaylistsUrl = " + mPlaylistsUrl);
 
         final Fragment parent = getParentFragment();
 //        if (parent != null) {
