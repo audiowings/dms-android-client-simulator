@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+
+
+    >
+    <PreferenceCategory
+
+        android:title="@string/pref_connection_title"
+        android:key="pref_key_connection_settings">
+        <EditTextPreference
+            android:key="@string/pref_key_audiowings_server_address"
+            android:summary="@string/pref_audiowings_server_address"
+            android:title="@string/pref_title_audiowings_server_address"
+            android:defaultValue="localhost"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+
+            />
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+    android:title="@string/pref_ui_title"
+    android:key="pref_key_ui_settings">
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

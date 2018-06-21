@@ -16,8 +16,11 @@
   -->
 <resources>
 
-    <style name="AppTheme" parent="@style/Theme.AppCompat.NoActionBar">
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowSwipeToDismiss">false</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+
     </style>
 
     <style name="RoundButton">
