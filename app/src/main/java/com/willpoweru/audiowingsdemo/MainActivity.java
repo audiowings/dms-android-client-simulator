@@ -153,9 +153,9 @@ public class MainActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        String mAwDmsServerAddress = sharedPref.getString(getResources()
-                .getString(R.string.pref_key_audiowings_server_address), "");
+//        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+//        String mAwDmsServerAddress = sharedPref.getString(getResources()
+//                .getString(R.string.pref_key_audiowings_server_address), "");
 
         mIsWatch = getResources().getBoolean(R.bool.watch);
         setContentView(R.layout.activity_main);

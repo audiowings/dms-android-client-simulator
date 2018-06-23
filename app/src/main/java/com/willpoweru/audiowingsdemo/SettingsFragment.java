@@ -38,7 +38,8 @@ public class SettingsFragment extends PreferenceFragment {
         // to their values. When their values change, their summaries are
         // updated to reflect the new value, per the Android Design
         // guidelines.
-        SettingsActivity.bindPreferenceSummaryToValue(findPreference(getResources().getString(R.string.pref_key_audiowings_server_address)));
+        SettingsActivity.bindPreferenceSummaryToValue(findPreference(getResources().getString(R.string.pref_key_server_address)));
+        SettingsActivity.bindPreferenceSummaryToValue(findPreference(getResources().getString(R.string.pref_key_server_port)));
 
 
     }

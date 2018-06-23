@@ -30,8 +30,6 @@ public class DmsClient {
             SOCKET_TIMEOUT_MS,
             DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
             DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
-    static final String PROXY_SERVER = "192.168.0.16:3000";
-    static final String BASE_URL = "http://" + PROXY_SERVER;
     static final String MAC_ADDRESS = "FF-01-25-79-C7-EC";
 
 

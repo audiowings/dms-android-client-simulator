@@ -101,5 +101,8 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
-    <string name="pref_key_audiowings_server_address">pref_key_audiowings_server_address</string>
+    <string name="pref_key_server_address">pref_key_server_address</string>
+    <string name="pref_key_server_port">pref_key_server_port</string>
+    <string name="pref_default_proxy_port">DMS proxy server port number</string>
+    <string name="pref_title_proxy_port">Audiowings proxy server port</string>
 </resources>

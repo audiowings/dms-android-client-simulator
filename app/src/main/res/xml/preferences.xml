@@ -10,7 +10,7 @@
         android:title="@string/pref_connection_title"
         android:key="pref_key_connection_settings">
         <EditTextPreference
-            android:key="@string/pref_key_audiowings_server_address"
+            android:key="@string/pref_key_server_address"
             android:summary="@string/pref_audiowings_server_address"
             android:title="@string/pref_title_audiowings_server_address"
             android:defaultValue="localhost"
@@ -20,6 +20,17 @@
 
             />
 
+        <EditTextPreference
+            android:key="@string/pref_key_server_port"
+            android:summary="@string/pref_default_proxy_port"
+            android:title="@string/pref_title_proxy_port"
+            android:defaultValue="3000"
+            android:inputType="number"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+
+            />
 
     </PreferenceCategory>
 

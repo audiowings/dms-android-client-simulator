@@ -227,9 +227,11 @@ public class SelectPlaylistDialogFragment extends DialogFragment implements DmsC
         mDmsClient = new DmsClient(this);
 
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String mProxyAddress = sharedPref.getString(getResources()
-                .getString(R.string.pref_key_audiowings_server_address), "");
-        mBaseUrl = "http://" + mProxyAddress;
+        String serverAddress = sharedPref.getString(getResources()
+                .getString(R.string.pref_key_server_address), "");
+        String serverPort = sharedPref.getString(getResources()
+                .getString(R.string.pref_key_server_port), "");
+        mBaseUrl = "http://" + serverAddress + ":" + serverPort;
         mPlaylistsUrl = mBaseUrl + "/playlists/";
         mPlaylistUrl = mBaseUrl + "/playlist/"; // ?playlistId=";
 
